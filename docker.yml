@@ -1,0 +1,31 @@
+-
+  name: Install docker
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+    - name: Start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add user to the group
+      command: "usermod -aG docker $USER"
+      become: yes
+      become_user: root
+     
+    - name: Verify Docker installation
+      command: docker --version
+      register: docker_version
+      changed_when: false
+
+    - name: Output Docker version
+      debug:
+        msg: "Docker version: {{ docker_version.stdout }}"

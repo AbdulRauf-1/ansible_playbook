@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic Cool Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f0f0f0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 1em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00f;
+        }
+
+        nav.sticky {
+            background: #222;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+            font-size: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background: #f4f4f4;
+        }
+
+        .service {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+        }
+
+        .service h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#footer">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div>
+            <h1>Welcome to Our Cool Website!</h1>
+            <p>We build awesome experiences on the web. Let's create something amazing together!</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We are a team of passionate developers creating modern, user-friendly websites that deliver an exceptional experience. Our approach is simple: build with creativity, code with precision, and deliver on time.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="service">
+            <h3>Web Development</h3>
+            <p>We build responsive, functional, and beautiful websites using the latest web technologies.</p>
+        </div>
+        <div class="service">
+            <h3>UI/UX Design</h3>
+            <p>Our designs are user-centered, ensuring an intuitive and engaging experience for your audience.</p>
+        </div>
+        <div class="service">
+            <h3>SEO Optimization</h3>
+            <p>We help improve your website's visibility on search engines to drive more traffic.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <p>&copy; 2024 Your Cool Website. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Sticky Navigation Bar
+        window.onscroll = function() {stickyNavbar()};
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function stickyNavbar() {
+            if (window.pageYOffset > sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+
+</body>
+</html>
