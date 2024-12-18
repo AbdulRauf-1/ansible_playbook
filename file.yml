@@ -1,0 +1,30 @@
+-
+  name: Manage directory and files
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Create directory
+      ansible.builtin.file:
+        path: ./playbook
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create a file
+      ansible.builtin.file:
+        path: ./playbook/myfile.txt
+        state: touch
+        owner: root
+        group: root
+        mode: "644"
+    
+    - name: Remove file
+      ansible.builtin.file:
+        path: ./playbook/my_file.txt
+        state: absent
+
+    - name: Remove directory
+      ansible.builtin.file:
+        path: ./playbook
+        state: absent
